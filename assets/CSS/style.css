@@ -1,10 +1,11 @@
 /* CSS Custom Properties */
 
 :root{
-  --main-bg-color: #f3d1c7;
-  --secondary-bg-color: #e1b08f;
-  --primary-type-color: #1a1a1a;
-  --accent-color-1: #874e3b;
+   --main-bg-color: #121212;
+  --secondary-bg-color: #1e1e1e;
+  --primary-type-color: #f5f5f5;
+  --accent-color-1: #cccccc;
+  --border-soft: #2a2a2a;
 }
 
 
@@ -31,7 +32,7 @@ img {
 
 /* ------ Utility Classes  -------*/
 .container {
-  max-width: 680px; /* Design Time */
+  max-width: 480px; /* Design Time */
   margin: 0 auto;
   background: var(--secondary-bg-color);
 }
@@ -44,6 +45,129 @@ body {
   color: var(--primary-type-color);
   line-height: 1.6;
 }
+
+.container {
+  max-width: 100px;
+  margin: 0 auto;
+  background: var(--secondary-bg-color);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+}
+
+#standings {
+  background: #0d0d0d;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+#standings iframe {
+  border-radius: 10px;
+  filter: brightness(0.95) contrast(0.95) saturate(0.9);
+}
+
+/* Make calculator column match iframe height */
+#calculator {
+  min-height: 600px;   /* match iframe height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* stack elements from top */
+  gap: 10px;                  /* space between inputs and labels */
+}
+
+
+#top10 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3px;
+}
+
+#top10 label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #181818;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#top10 label:hover {
+  background: #202020;
+  border-color: var(--accent-color-1);
+}
+
+#top10 input[type="checkbox"] {
+  accent-color: var(--accent-color-1);
+  transform: scale(1.2);
+}
+
+#total-players {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: white;
+  color: black;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#total-players:focus {
+  border-color: var(--accent-color-1);
+  box-shadow: 0 0 0 2px rgba(187,106,77,0.25);
+}
+
+#result {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: #181818;
+  border: 1px solid var(--border-soft);
+}
+
+#weight-output {
+  color: var(--accent-color-1);
+  font-size: 1.8rem;
+}
+
+#top10 input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+#top10 input[type="checkbox"]:checked + label {
+  background: var(--accent-color-1);
+  color: white;
+  border-color: var(--accent-color-1);
+}
+
+@keyframes weightGlow {
+  0%   { box-shadow: 0 0 0 rgba(187,106,77,0); }
+  50%  { box-shadow: 0 0 18px rgba(187,106,77,0.6); }
+  100% { box-shadow: 0 0 0 rgba(187,106,77,0); }
+}
+
+.weight-animate {
+  animation: weightGlow 0.6s ease;
+}
+
+.page-title {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+
 
 div.calc {
   display: flex;
@@ -96,7 +220,7 @@ div.calc > * {
   #standings {
     flex: 0 0 50%;             /* fixed 60% width */
     border-right: 1px solid var(--accent-color-1); /* separation line */
-    padding: 0 10px 0 0;       /* internal padding */
+    padding: 10px 10px 10px 10px;       /* internal padding */
   }
 
   /* Right column: calculator */

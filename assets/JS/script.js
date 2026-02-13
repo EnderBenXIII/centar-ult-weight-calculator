@@ -16,6 +16,11 @@ function calculateWeight() {
         if (cb.checked) {
             attendancePoints += parseInt(cb.value);
         }
+        // Trigger glow animation
+    weightOutput.classList.remove("weight-animate");
+    void weightOutput.offsetWidth; // restart animation
+    weightOutput.classList.add("weight-animate");
+
     });
 
     // 2b. Map total entrants to points
@@ -46,3 +51,8 @@ totalPlayersInput.addEventListener("input", calculateWeight);
 
 // 5. Optional: keep the Calculate button functional
 calculateBtn.addEventListener("click", calculateWeight);
+
+document.addEventListener("click", e => {
+    console.log("Clicked element:", e.target);
+});
+
