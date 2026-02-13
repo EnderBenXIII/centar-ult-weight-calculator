@@ -1,0 +1,107 @@
+/* CSS Custom Properties */
+
+:root{
+  --main-bg-color: #f3d1c7;
+  --secondary-bg-color: #e1b08f;
+  --primary-type-color: #1a1a1a;
+  --accent-color-1: #874e3b;
+}
+
+
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* ------ Typography -------*/
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* ------ Fluid Images -------*/
+
+img {
+  max-width: 100%;
+}
+
+/* ------ Utility Classes  -------*/
+.container {
+  max-width: 680px; /* Design Time */
+  margin: 0 auto;
+  background: var(--secondary-bg-color);
+}
+
+
+/* ------ Global Styles -------*/
+
+body {
+  background: var(--main-bg-color);
+  color: var(--primary-type-color);
+  line-height: 1.6;
+}
+
+div.calc {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+.page-title {
+  order: 0;
+}
+
+#standings {
+  order: 1;
+}
+#calculator {
+  order: 2;
+}
+
+/*-----------------------Media Queries-------------------------------------*/
+
+/* Mobile default: stacked columns */
+div.calc > * {
+  flex: 1 100%;  /* full width on small screens */
+}
+
+/* Tablet screens: 768px and up */
+@media only screen and (min-width: 768px) {
+  main.container,
+  header.container {
+    max-width: 900px; /* wider container for tablets */
+  }
+  
+  /* You can keep stacked layout or add small tweaks here if needed */
+}
+
+/* Desktop screens: 992px and up */
+@media only screen and (min-width: 992px) {
+  main.container,
+  header.container {
+    max-width: 1440px; /* full-width layout for desktop */
+  }
+
+  div.calc {
+    display: flex;       /* Flex container */
+    flex-wrap: wrap;     /* allow stacking if needed on narrow widths */
+    gap: 20px;           /* spacing between columns */
+  }
+
+  /* Left column: standings iframe */
+  #standings {
+    flex: 0 0 50%;             /* fixed 60% width */
+    border-right: 1px solid var(--accent-color-1); /* separation line */
+    padding: 0 10px 0 0;       /* internal padding */
+  }
+
+  /* Right column: calculator */
+  #calculator {
+    flex: 0 0 40%;             /* fixed 40% width */
+    padding: 0 0 0 10px;       /* internal padding */
+  }
+}

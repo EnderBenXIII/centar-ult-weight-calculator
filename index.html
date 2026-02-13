@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="author" content="Ben Weisenfelder" />
+            <meta name="description" content="Homepage for Calculator" />
+            <title>CentAR Smash Ultimate Tournament Weight Calculator</title>
+            <link rel="stylesheet" href="assets/CSS/style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        </head>
+        <body>
+                <header class="container" id="top">
+                <h1 class="page-title">CentAR Smash Ultimate Tournament Weight Calculator</h1>
+                </header>
+                <main class="container">
+                <div class="calc">
+                    <section id="standings">
+                        <iframe width='100%' height='600px' frameborder='0'  
+                        allowfullscreen src='https://braacket.com/league/CentralARUltimateLeague/ranking/234185F7-4260-4DC6-B310-66718A4ADB3B?rows=20&cols=&page=1&page_cols=1&game_character=&country=&search=&embed=1'>
+                    </iframe>
+                    </section>
+                    <section id="calculator">
+                        <!-- Top 10 Attendance -->
+                        <div id="top10">
+                            <p>Select which Top 10 players attended:</p>
+                            <input type="checkbox" value="9" id="rank1">
+                            <label for="rank1">Rank 1</label>
+                            <input type="checkbox" value="8" id="rank2">
+                            <label for="rank2">Rank 2</label>
+                            <input type="checkbox" value="7" id="rank3">
+                            <label for="rank3">Rank 3</label>
+                            <input type="checkbox" value="6" id="rank4">
+                            <label for="rank4">Rank 4</label>
+                            <input type="checkbox" value="5" id="rank5">
+                            <label for="rank5">Rank 5</label>
+                            <input type="checkbox" value="5" id="rank6">
+                            <label for="rank6">Rank 6</label>
+                            <input type="checkbox" value="4" id="rank7">
+                            <label for="rank7">Rank 7</label>
+                            <input type="checkbox" value="3" id="rank8">
+                            <label for="rank8">Rank 8</label>
+                            <input type="checkbox" value="2" id="rank9">
+                            <label for="rank9">Rank 9</label>
+                            <input type="checkbox" value="1" id="rank10">
+                            <label for="rank10">Rank 10</label>
+                        </div>
+
+                        <!-- Total entrants -->
+                        <div id="entrants">
+                            <label for="total-players">Total number of entrants:</label>
+                            <input type="number" id="total-players" min="0">
+                        </div>
+
+
+                        <!-- Result -->
+                        <div id="result">
+                            <p>Tournament Weight: <span id="weight-output">0%</span></p>
+                        </div>
+                    </section>
+                </div>
+            </main>
+            <script src="assets/JS/script.js"></script>
+        </body>
+    </html>
